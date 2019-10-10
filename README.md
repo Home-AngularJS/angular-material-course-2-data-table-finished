@@ -1,3 +1,9 @@
+#Angular Material Data Table (Server Pagination, Filtering, Sorting)
+
+* https://blog.angular-university.io/angular-material-data-table
+* [Github Repo](https://github.com/angular-university/angular-material-course/tree/2-data-table-finished)
+
+![screenshot](screenshot.png)
 
 ## Angular Material Course
 

@@ -1,32 +1,21 @@
-
-
-
-import {CollectionViewer, DataSource} from "@angular/cdk/collections";
-import {Observable, BehaviorSubject, of} from "rxjs";
-import {Lesson} from "../model/lesson";
-import {CoursesService} from "./courses.service";
-import {catchError, finalize} from "rxjs/operators";
-
-
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+import { Lesson } from '../model/lesson';
+import { CoursesService } from './courses.service';
 
 export class LessonsDataSource implements DataSource<Lesson> {
-
     private lessonsSubject = new BehaviorSubject<Lesson[]>([]);
-
     private loadingSubject = new BehaviorSubject<boolean>(false);
-
     public loading$ = this.loadingSubject.asObservable();
 
-    constructor(private coursesService: CoursesService) {
+    constructor(private coursesService: CoursesService) {}
 
-    }
-
-    loadLessons(courseId:number,
-                filter:string,
-                sortDirection:string,
-                pageIndex:number,
-                pageSize:number) {
-
+    loadLessons(courseId: number,
+                filter: string,
+                sortDirection: string,
+                pageIndex: number,
+                pageSize: number) {
         this.loadingSubject.next(true);
 
         this.coursesService.findLessons(courseId, filter, sortDirection,
@@ -35,7 +24,6 @@ export class LessonsDataSource implements DataSource<Lesson> {
                 finalize(() => this.loadingSubject.next(false))
             )
             .subscribe(lessons => this.lessonsSubject.next(lessons));
-
     }
 
     connect(collectionViewer: CollectionViewer): Observable<Lesson[]> {
@@ -47,6 +35,5 @@ export class LessonsDataSource implements DataSource<Lesson> {
         this.lessonsSubject.complete();
         this.loadingSubject.complete();
     }
-
 }
 

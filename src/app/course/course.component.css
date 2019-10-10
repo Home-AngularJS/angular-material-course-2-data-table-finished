@@ -40,3 +40,12 @@
 .spinner-container mat-spinner {
     margin: 130px auto 0 auto;
 }
+
+.mat-paginator {
+  position: absolute;
+  width: 390px;
+}
+
+.mat-table {
+  margin-top: 55px;
+}

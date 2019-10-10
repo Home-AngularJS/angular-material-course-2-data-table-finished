@@ -11,9 +11,6 @@ This repository contains the code of the [Angular Material Course](https://angul
 
 This course repository is updated to Angular v8, and there is a  package-lock.json file available, for avoiding semantic versioning installation issues.
 
-![Angular Material Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png)
-
-
 # Installation pre-requisites
 
 IMPORTANT: Please use NPM 5 or above, to make sure the package-lock.json is used.

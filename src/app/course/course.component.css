@@ -6,7 +6,7 @@
 }
 
 .course-thumbnail {
-    width: 150px;
+    width: 390px;
     margin: 20px auto 0 auto;
     display: block;
 }
@@ -27,13 +27,13 @@
 }
 
 .spinner-container {
-    height: 360px;
+    /*height: 360px;*/
     width: 390px;
     position: fixed;
 }
 
 .lessons-table {
-    min-height: 360px;
+    /*min-height: 360px;*/
     margin-top: 10px;
 }
 
@@ -47,5 +47,22 @@
 }
 
 .mat-table {
-  margin-top: 55px;
+  margin-top: 100px;
+}
+
+.mat-header-row {
+  /*position: absolute;*/
+  /*width: 390px;*/
+  margin-top: -55px;
+}
+
+.mat-header-cell {
+  /*padding-left: 7%;*/
+  font-weight: bold;
+  color: #000;
+}
+
+.mat-cell {
+  padding-left: 15px;
+  padding-right: 0px;
 }

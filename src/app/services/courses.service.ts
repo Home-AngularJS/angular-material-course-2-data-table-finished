@@ -7,7 +7,7 @@ import { Lesson } from '../model/lesson';
 
 @Injectable()
 export class CoursesService {
-    constructor(private http:HttpClient) {}
+    constructor(private http: HttpClient) {}
 
     findCourseById(courseId: number): Observable<Course> {
         return this.http.get<Course>(`/api/courses/${courseId}`);
@@ -20,19 +20,19 @@ export class CoursesService {
             );
     }
 
-    findAllCourseLessons(courseId:number): Observable<Lesson[]> {
+    findAllCourseLessons(courseId: number): Observable<Lesson[]> {
         return this.http.get('/api/lessons', {
             params: new HttpParams()
                 .set('courseId', courseId.toString())
-                .set('pageNumber', "0")
-                .set('pageSize', "1000")
+                .set('pageNumber', '0')
+                .set('pageSize', '1000')
         }).pipe(
-            map(res =>  res["payload"])
+            map(res =>  res['payload'])
         );
     }
 
     findLessons(
-        courseId:number, filter = '', sortOrder = 'asc',
+        courseId: number, filter = '', sortOrder = 'asc',
         pageNumber = 0, pageSize = 3):  Observable<Lesson[]> {
           return this.http.get('/api/lessons', {
               params: new HttpParams()
@@ -42,7 +42,7 @@ export class CoursesService {
                   .set('pageNumber', pageNumber.toString())
                   .set('pageSize', pageSize.toString())
           }).pipe(
-              map(res =>  res["payload"])
+              map(res =>  res['payload'])
           );
       }
 }

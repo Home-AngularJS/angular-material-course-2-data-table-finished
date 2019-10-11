@@ -1,11 +1,13 @@
+import {PageEvent} from '@angular/material';
 
 
 export interface Course {
-    id:number;
-    description:string;
+    pageEvent: PageEvent;
+    id: number;
+    description: string;
     iconUrl: string;
     courseListIcon: string;
     longDescription: string;
-    category:string;
-    lessonsCount:number;
+    category: string;
+    lessonsCount: number;
 }

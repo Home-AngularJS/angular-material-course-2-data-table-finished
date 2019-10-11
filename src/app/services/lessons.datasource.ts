@@ -18,11 +18,17 @@ export class LessonsDataSource implements DataSource<Lesson> {
                 pageSize: number) {
         this.loadingSubject.next(true);
 
+        console.log('==================================')
+        console.log(courseId)
+        console.log(filter)
+        console.log(sortDirection)
+        console.log(pageIndex)
+        console.log(pageSize)
+
         this.coursesService.findLessons(courseId, filter, sortDirection,
             pageIndex, pageSize).pipe(
                 catchError(() => of([])),
-                finalize(() => this.loadingSubject.next(false))
-            )
+                finalize(() => this.loadingSubject.next(false)))
             .subscribe(lessons => this.lessonsSubject.next(lessons));
     }
 

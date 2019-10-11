@@ -10,7 +10,12 @@ export function searchLessons(req: Request, res: Response) {
           pageNumber = parseInt(queryParams.pageNumber) || 0,
           pageSize = parseInt(queryParams.pageSize);
 
-    let lessons = Object.values(LESSONS).filter(lesson => lesson.courseId == courseId).sort((l1, l2) => l1.id - l2.id);
+    console.log( queryParams )
+    // console.log( JSON.stringify(queryParams) )
+
+    let lessons = Object.values(LESSONS)
+      .filter(lesson => lesson.courseId == courseId)
+      .sort((l1, l2) => l1.id - l2.id);
     if (filter) {
        lessons = lessons.filter(
          lesson => lesson.description.trim()
